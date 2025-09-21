@@ -49,3 +49,40 @@
     ORDER BY number_of_abnormalities DESC, v.[timestamp] DESC;
 
 
+
+--  A2: Top 10 patients with highest frequency of abnormal vital readings over the current month
+       
+        
+        
+        
+        
+        WITH AbnormalReading AS (
+        SELECT
+        p.patient_id,
+        p.full_name,
+        v.[timestamp] AS reading_time,
+        CASE WHEN 
+            (v.heart_rate < 60 OR v.heart_rate > 100
+             OR v.systolic_bp > 140
+             OR v.diastolic_bp > 90
+             OR v.oxygen_saturation < 95
+             OR v.body_temperature > 38.0)
+        THEN 1 ELSE 0 END AS is_abnormal
+        FROM Vitals v
+        INNER JOIN Patients p ON v.patient_id = p.patient_id
+        WHERE 
+        v.[timestamp] >= '2025-05-01 00:00:00'  -- first day of May
+        AND v.[timestamp] <  '2025-06-01 00:00:00'  -- first day of June
+        )
+        SELECT TOP 10
+        patient_id,
+        full_name,
+        COUNT(*) AS abnormal_readings_count
+        FROM AbnormalReading
+        WHERE is_abnormal = 1
+        GROUP BY patient_id, full_name
+        ORDER BY abnormal_readings_count DESC;
+
+
+
+
