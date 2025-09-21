@@ -50,10 +50,6 @@
 
 --  A2: Top 10 patients with highest frequency of abnormal vital readings over the current month
        
-        
-        
-        
-        
         WITH AbnormalReading AS (
         SELECT
         p.patient_id,
