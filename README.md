@@ -14,15 +14,23 @@ Harmonie Health identified five critical areas for improvement:
 5.  *Absence of real-time alerts* for at-risk patients.
 
 ## 🚀 Key Insights & Impact
-- *🚨 Proactive Patient Safety:* Identified *111 patients* with abnormal vitals in a 48-hour period, enabling life-saving early interventions.
-- *📈 Readmission Reduction:* Discovered *Cardiology* has the highest readmission rate (*26.77%*), providing a clear target for improved discharge protocols and follow-up care, potentially saving hundreds of thousands annually.
-- *⏱ Operational Efficiency:* Pinpointed doctors with average response times *exceeding 10 minutes*, uncovering a key bottleneck affecting patient wait times and satisfaction.
-- *📊 Data-Driven Framework:* delivered a scalable SQL-based reporting tool for ongoing analysis, empowering the operations team to make informed decisions.
-
+-   *🚑 Critical Patient Safety Dashboard:* Identified *111 patients* with abnormal vitals in 48 hours, including *26 with 3+ co-occurring issues*, enabling immediate clinical intervention to prevent code blues and ICU transfers.
+-   *📉 Readmission Crisis Uncovered:* Calculated the 30-day readmission rate at 56.8%, a catastrophic figure indicating that 1 in 2 patients returns within a month. Pinpointed *General Practice (59.22%)* and *Cardiology (58.59%)* as the highest-risk departments, providing a clear target for initiatives that could improve care.
+-   *⏱ Operational Bottlenecks Identified:* While departmental response times were strong (7-8 min), analysis revealed *133 doctors* (18% of staff) with slow response times, uncovering a training and workflow opportunity. Further analysis showed peak demand at *6:00 AM*, revealing a significant misalignment between shift schedules and clinical need.
+-   *📊 Strategic Resource Allocation:* Quantified departmental admission volumes, revealing *General Practice* and *Emergency* handle the highest patient load, directly linking high workload to poor outcomes and justifying requests for increased staffing.
+-   *✅ Positive Outcome Validation:* Analysis of post-ICU mortality revealed *0 patients* were discharged and later readmitted as deceased, validating the effectiveness of the ICU's end-of-life care and discharge planning protocols.
 ## 🛠 Tech Stack & Tools
 - *Database:* Microsoft SQL Server
 - *Tools:* SQL Server Management Studio (SSMS)
+- *Key SQL Techniques:*
+    -   **Window Functions (LEAD())** for accurate time-between-readmission calculation.
+    -   *Common Table Expressions (CTEs)* for complex, multi-step data preparation.
+    -   **Conditional Aggregation (CASE statements with SUM/COUNT)** for clinical KPI calculation.
+    -   *HAVING Clauses* to filter for statistically significant performance data.
+    -   *Date/Time Functions* for trend analysis over time and by hour of day.
 - *Methodology:* Exploratory Data Analysis (EDA)
+
+
 
 ## 🔍 How to Navigate This Project
 1.  *For a Quick Summary:* Read the *Key Insights* above and the [Detailed Analysis](./Analysis/detailed_analysis.md).
