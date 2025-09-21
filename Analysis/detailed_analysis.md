@@ -90,6 +90,29 @@ This document provides a comprehensive breakdown of the data analysis conducted 
 
 ---
 
+## *D. Workload & Capacity*
+### *D1. Admission Volume by Department (May 2025)*
+
+*   *Objective:* To understand departmental workload to aid in resource allocation and staffing decisions.
+*   *Approach:* Counted completed admissions by department for the most recent full month of data (May 2025).
+*   *Key Finding:* Workload is significant and distributed across all major departments. The *Emergency* and *General Practice* departments handle the highest patient volumes, with *211* and *206* admissions respectively, followed closely by *Cardiology (198)*.
+*   *Insight:* The high volume in the *Emergency* department is expected as it is the main entry point for acute care. However, the high volume in *General Practice* and *Cardiology* directly correlates with and likely contributes to their severe readmission rates (59.22% and 58.59% from B2). These departments are under immense pressure, which can lead to rushed discharges, inadequate patient education, and poor care coordination which can cause readmission.
+*   *Recommendation:*
+    *   *Immediate Staffing Review:* Conduct an urgent audit of nurse-to-patient and doctor-to-patient ratios in the *General Practice* and *Cardiology* departments. Their high volume and critically high readmission rates indicate they are likely under-resourced.
+    *   *Load Balancing:* Explore if some non-critical cases in General Practice can be managed through a redesigned outpatient clinic or virtual care to reduce the burden on inpatient units.
+    *   *Volume-Based Forecasting:* Use this monthly volume data to predict future staffing and bed needs, ensuring these high-volume departments are prioritized.
+ 
+### *D2. Peak Hours for Clinical Demand*
+
+*   *Objective:* To identify peak demand periods for clinical staff to optimize shift scheduling and reduce patient wait times.
+*   *Approach:* Extracted the hour of the day from each visit_time timestamp and counted the number of visits per hour.
+*   *Key Finding:* Clinical demand is *highly inconsistent throughout the day. Contrary to the expected peak during midday, the data shows high demand very early in the morning (6:00 AM* with 82 visits) and again in the late afternoon (*4:00 PM & 5:00 PM* with 80 and 76 visits). There is a significant drop in activity during overnight hours.
+*   *Insight:* The traditional 9-to-5 shift model is *misaligned with actual patient needs. The high demand at **6:00 AM* suggests a need for robust early morning rounding capabilities. The second peak in the late afternoon (*4-5 PM*) may coincide with the end of visiting hours, attending physician handovers, or a surge in emergency cases, potentially creating a dangerous bottleneck.
+*   *Recommendation:*
+    *   *Staggered and Adjusted Shifts:* Implement non-traditional shift schedules to match demand.
+    *   *Increase Evening Coverage:* Ensure adequate clinical staff are present during the 4:00 PM - 6:00 PM window to handle the late-day surge in demand and prevent a drop in care quality during shift changeovers.
+
+---
 ## E. Patient Outcomes
 
 ### *E1. ICU Patients Subsequently Deceased*
