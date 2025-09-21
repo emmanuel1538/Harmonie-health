@@ -2,8 +2,6 @@
 
 -- A1: Patients with abnormal vital signs in the last 48 hours 
 
-
-
     SELECT
     p.patient_id,
     p.full_name,
