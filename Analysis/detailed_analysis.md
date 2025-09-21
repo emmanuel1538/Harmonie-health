@@ -73,15 +73,17 @@ This document provides a comprehensive breakdown of the data analysis conducted 
 -   *Insight:*This is a major *operational strength* for Harmonie Health. It indicates that the current staffing levels, triage systems, and workflow processes for physician deployment are effectively meeting patient needs across the facility. The data suggests that doctor responsiveness is *not a contributing factor* to the other critical issues identified, such as the high readmission rate.
 -   *Recommendation:*
     *   *Maintain & Recognize:* This is a performance metric to be celebrated and maintained. Share these positive findings with clinical department heads and staff to reinforce effective practices.
-    *   *Document Best Practices:* Have the department with the fastest average response time (*General Practice*) share their workflow strategies with other teams to ensure consistency.
-    *   *Focus Resources Elsewhere:* Given that responsiveness is not a problem, leadership should redirect quality improvement resources and attention to the areas that need it most, specifically the *readmission crisis* identified in sections B1 and B2.
+
 
 ### *C2. Doctors with Slow Response Times*
 
--   *Objective:* To identify individual clinicians with consistently slow response times for supportive coaching.
--   *Approach:* Grouped Doctors_Visits from the last 14 days by doctor_id and calculated the average response_time. Filtered for averages greater than 10 minutes.
--   *Key Finding:* *Dr. D128* has the highest average response time of *18.2 minutes* across 45 visits.
--   *Insight:* Individual performance data helps identify who needs support. Slow response times may not be due to individual skill but to being overburdened, dealing with complex cases, or needing workflow support.
+-   *Objective:* To identify individual clinicians with consistently slow response times.
+-   *Approach:* Analyzed Doctors_Visits from the past 14 days (May 7-20, 2025). To ensure statistical significance and fairness, only included doctors with *more than 2 visits* in that period. Calculated the average response_time for each and filtered for averages greater than 10 minutes.
+-   *Key Finding:* There are *5 doctors* with a consistent pattern of slow responsiveness. The slowest average response time was *12 minutes* (Dr. D914).
+-   *Insight:*This is a highly manageable and actionable list. The performance of these 5 individuals is dragging down departmental averages. The reasons are now possible to diagnose:
+    *   *Workflow Inefficiency:* These doctors may lack proficiency with the EHR system or have inefficient patient management habits.
+    *   *Case Complexity:* They might be consistently assigned to more complex cases that inherently require more time.
+    *   *Need for Support:* They may require better support from their teams or additional training.
 -   *Recommendation:*
     -   *Supportive Review:* Department heads should confidentially review this data with the identified doctors to understand the challenges they face and offer solutions (e.g., additional support staff, workflow training).
     -   *Case Mix Review:* Analyze if slower doctors are consistently assigned more complex or time-consuming patients.
@@ -94,17 +96,27 @@ This document provides a comprehensive breakdown of the data analysis conducted 
 
 -   *Objective:* To understand the long-term outcomes of critically ill patients who required ICU care.
 -   *Approach:* Identified patients with an ICU admission. Then checked for a subsequent admission after their ICU discharge where the outcome was 'Deceased'.
--   *Key Finding:* *15%* of patients discharged from the ICU were later readmitted and passed away.
--   *Insight:* This tragic metric helps evaluate the long-term effectiveness of critical care and highlights the need for better palliative and end-of-life care planning for chronically critically ill patients.
+-   *Key Finding:* The analysis returned *0 patients* who were discharged from the ICU and later readmitted before passing away.
+-   *Insight:*This finding suggests two possible scenarios:
+    1.  *Positive Interpretation:* Patients discharged from ICU care at Harmonie Health are sufficiently stabilized and provided with adequate palliative or chronic care support, preventing readmission for terminal decline.
+    2.  *Data Interpretation:* The result may be influenced by data structure. The 'Deceased' outcome likely marks the admission during which the patient passed away. Therefore, patients who die during their ICU stay are marked there, and those who are discharged to hospice or die at home may not be readmitted, thus not creating a separate 'Deceased' admission record in the database.
 -   *Recommendation:*
-    -   *Palliative Care Integration:* Develop a protocol to integrate palliative care teams into the treatment plan for ICU patients with a high mortality risk score, ensuring goals of care are established with patients and families early on.
+    *   *Verify Data Logic:* Confirm with clinical teams how patient mortality is recorded in the EHR. Does a discharge to hospice generate a new admission? This will clarify if the query is measuring the intended outcome.
+    *   *Alternative Metric:* To better assess end-of-life care, consider analyzing the *mortality rate *during ICU admissions** or the rate of *palliative care consultations for ICU patients* as more direct and reliably measured metrics.
+    *   *Maintain Practices:* If the positive interpretation is accurate, ensure the current protocols for post-ICU discharge planning and palliative care integration are maintained and shared as best practices.
 
 ### *E2. Outcome Distribution by Department*
 
 -   *Objective:* To provide a high-level overview of patient outcomes by department for quality assessment.
 -   *Approach:* Grouped completed admissions by department and outcome, counting the occurrences and calculating percentages.
--   *Key Finding:* The mortality rate is highest in *Cardiology (10.0%)* and *Pulmonology (10.0%), compared to **General Medicine (5.0%)*.
--   *Insight:* Higher mortality rates are expected in specialties dealing with more critical conditions. However, this baseline data is essential for tracking performance over time and against industry benchmarks.
+-   *Key Finding:*  The distribution reveals critical insights into departmental performance and patient populations:
+    *   *Mortality:* The *Emergency Department* has the highest mortality rate (~29%), which is expected given its role in receiving critical, unstable patients. All other departments have a remarkably similar mortality rate (~24%).
+    *   *ICU Admissions:* The *General Practice* department has the highest rate of ICU transfers (~29%), suggesting they are admitting patients who quickly deteriorate or are initially mis-triaged to a lower-acuity unit.
+    *   *Readmissions:* The *General Practice* and *Cardiology* departments are tied for the highest readmission rate (~27%), confirming the severe chronic care and discharge planning gaps identified in analysis B2.
+    *   *Recoveries:* The *Pulmonology* department has the highest rate of successful recoveries (~32%), indicating effective treatment protocols for their specific patient population.
+-   *Insight:*  This data confirms that *General Practice is the most critical department requiring intervention.* It has a high rate of sending patients to the ICU and a high rate of readmissions, indicating failures at both the initial treatment and discharge planning stages. The high mortality rates across all departments are consistent with treating critically ill patients but should be monitored against national benchmarks.
 -   *Recommendation:*
-    -   *Quality Review:* Departments with higher mortality rates should conduct structured mortality reviews for a sample of cases to identify any potential, addressable patterns in care.
-    -   *Benchmarking:* Compare these rates against national benchmarks to understand if they are within expected ranges for similar institutions.
+    1.  *Immediate General Practice Review:* Launch a top-to-bottom audit of the General Practice department's triage protocols, initial treatment plans, and discharge procedures. Their high ICU and readmission rates indicate systemic issues.
+    2.  *Benchmarking:* Compare these mortality and readmission rates against national averages to determine if they are within an expected range for similar institutions.
+
+    3.  *Share Best Practices:* Investigate the protocols used by the *Pulmonology* department that lead to its higher recovery rate and assess if they can be applied to other departments.
